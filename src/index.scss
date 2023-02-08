@@ -1,0 +1,14 @@
+@import 'breakpoints.scss';
+@import 'src/variables.scss';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $bacground-color-page;
+  min-height: 100vh;
+  color: $font-color;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
