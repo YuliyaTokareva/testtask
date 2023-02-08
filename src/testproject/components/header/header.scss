@@ -1,0 +1,14 @@
+@import '../../../breakpoints.scss';
+@import 'src/variables.scss';
+
+.page-header {
+  padding: 13px 16px;
+  background: #ffffff;
+}
+.page-header__contaianer {
+  display: flex;
+  justify-content: space-between;
+}
+.page-header__users-btn {
+  margin-right: 10px;
+}
