@@ -1,0 +1,42 @@
+@import '../../../breakpoints.scss';
+@import 'src/variables.scss';
+
+.get-request {
+  padding: 0 16px;
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include for-pad {
+    padding: 0 32px;
+  }
+  @include for-laptop {
+    padding: 0 60px;
+  }
+  @include for-large-screen {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+  }
+  &__title {
+    margin-bottom: 50px;
+  }
+  &__cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 20px 0;
+    margin-bottom: 50px;
+    @include for-pad {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 16px;
+    }
+    @include for-laptop-and-large {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 29px;
+    }
+  }
+  &__show-more-btn {
+    width: 120px;
+  }
+}

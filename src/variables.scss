@@ -1,5 +1,15 @@
-///bacground-color
+$primary-color: rgb(244, 224, 65);
+$primary-color-hover: rgb(255, 227, 2);
+$secondary-color: rgb(0 189 211);
+//bacground-color
 $bacground-color-page: rgba(248, 248, 248, 1);
 $bacground-color-white: rgb(255, 255, 255);
+$bacground-color-grey: rgb(180, 180, 180);
 ///font
 $font-color: rgba(0, 0, 0, 0.87);
+$font-color-white: rgb(255, 255, 255);
+$font-color-disable: rgb(255, 255, 255, 0.87);
+$font-color-grey: rgb(126, 126, 126);
+$font-color-error: rgb(203, 61, 64);
+///input
+$input-border: 1px solid rgb(208, 207, 207);

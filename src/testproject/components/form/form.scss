@@ -1,0 +1,175 @@
+@import '../../../breakpoints.scss';
+@import 'src/variables.scss';
+
+::placeholder {
+  color: $font-color-grey;
+}
+.post-request {
+  margin-top: 140px;
+  padding: 0 16px;
+  @include for-pad {
+    padding: 0 32px;
+  }
+  @include for-laptop {
+    padding: 0 60px;
+  }
+  @include for-large-screen {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+  }
+}
+form {
+  @include for-large-up {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+.form-control {
+  margin-top: 50px;
+  position: relative;
+}
+.form-top-text {
+  display: none;
+}
+input {
+  background: $bacground-color-page;
+  border: $input-border;
+  border-radius: 4px;
+  width: 100%;
+  padding: 14px 16px;
+  color: $font-color;
+}
+input[type='email'],
+input[type='text'] {
+  & + label {
+    opacity: 0;
+  }
+}
+.form-error-text {
+  display: none;
+}
+input:focus-visible {
+  background: $bacground-color-page;
+  border: $input-border;
+  border-radius: 4px;
+  outline: none;
+}
+.form-error-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: $font-color-error;
+}
+.form-top-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: $font-color-grey;
+  position: absolute;
+  top: -9px;
+  left: 7px;
+  background: $bacground-color-page;
+  padding: 2px 4px;
+}
+input:invalid .form-error-text {
+  display: block;
+}
+small {
+  font-size: 12px;
+  line-height: 14px;
+  color: $font-color-grey;
+  margin-left: 16px;
+}
+.radio-input {
+  display: flex;
+  flex-direction: column;
+}
+.radio-button-title {
+  margin-bottom: 11px;
+}
+.form-control.radio-input {
+  margin-top: 25px;
+}
+.radio {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  text-align: left;
+  & + .radio {
+    margin-top: 12px;
+  }
+  input {
+    display: none;
+    & + span {
+      display: inline-block;
+      position: relative;
+      padding-left: 32px;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 0px;
+        border-radius: 50%;
+        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+        border: $input-border;
+        background: $bacground-color-white;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: $secondary-color;
+        position: absolute;
+        border-radius: 50%;
+        top: 8px;
+        left: 5px;
+        opacity: 0;
+        transform: scale(0, 0);
+        transition: all 0.2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+      }
+    }
+    &:checked + span:after {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+    &:checked + span:before {
+      border: 1px solid $secondary-color;
+    }
+  }
+}
+.upload-img {
+  width: 83px;
+  height: 54px;
+  border: 1px solid $font-color;
+  border-radius: 4px 0px 0px 4px;
+  background-color: $bacground-color-page;
+  display: inline-block;
+  line-height: 54px;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+.img-custom-label {
+  border: $input-border;
+  border-radius: 4px;
+  height: 54px;
+  margin-top: 47px;
+}
+.upload-img-description {
+  color: $font-color-grey;
+  line-height: 54px;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  padding-left: 99px;
+}
+.submit-from {
+  display: block;
+  margin: 50px auto 100px auto;
+}

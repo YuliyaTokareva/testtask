@@ -3,11 +3,22 @@
 
 .page-header {
   padding: 13px 16px;
-  background: #ffffff;
+  background: $bacground-color-white;
+  @include for-pad {
+    padding: 13px 32px;
+  }
+  @include for-laptop {
+    padding: 13px 60px;
+  }
+  @include for-large-screen {
+    padding: 13px 0;
+  }
 }
 .page-header__contaianer {
   display: flex;
   justify-content: space-between;
+  max-width: 1170px;
+  margin: 0 auto;
 }
 .page-header__users-btn {
   margin-right: 10px;

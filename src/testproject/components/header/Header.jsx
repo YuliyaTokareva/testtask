@@ -9,8 +9,8 @@ const Header = () => {
       <div className="page-header__contaianer">
         <Logo />
         <div className="page-header__buttons">
-          <button className="page-header__users-btn">Users</button>
-          <button className="page-header__sign-up-btn">Sign up</button>
+          <button className="page-header__users-btn users-btn">Users</button>
+          <button className="page-header__sign-up-btn sign-up-btn">Sign up</button>
         </div>
       </div>
     </header>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../card/Card';
+import './cards.scss';
 const Cards = () => {
   return (
     <section className="get-request">
