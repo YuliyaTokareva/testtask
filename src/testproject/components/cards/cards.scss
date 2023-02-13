@@ -25,6 +25,7 @@
   &__cards {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    width: 100%;
     grid-gap: 20px 0;
     margin-bottom: 50px;
     @include for-pad {
@@ -32,11 +33,15 @@
       grid-gap: 16px;
     }
     @include for-laptop-and-large {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(282px, 1fr));
+      // grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 29px;
     }
   }
   &__show-more-btn {
     width: 120px;
+  }
+  button[nextPage='false'] {
+    display: none;
   }
 }

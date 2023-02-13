@@ -1,0 +1,31 @@
+@import 'src/variables.scss';
+.spinner {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0 50px;
+  margin-bottom: 50px;
+
+  &__element {
+    display: block;
+    margin: auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 8px solid $secondary-color;
+    border-bottom-color: transparent;
+    animation: rotate 1s linear infinite;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
