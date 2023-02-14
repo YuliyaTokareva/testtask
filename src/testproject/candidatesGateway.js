@@ -1,4 +1,3 @@
-import { baseUrl } from '../env';
 const fetchCandidatesList = (urlName) =>
   fetch(urlName)
     .then((res) => {

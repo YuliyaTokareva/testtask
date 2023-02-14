@@ -79,6 +79,9 @@ small {
   line-height: 14px;
   color: $font-color-grey;
   margin-left: 16px;
+  position: absolute;
+  bottom: -21px;
+  left: 0;
 }
 .radio-input {
   display: flex;
@@ -88,7 +91,7 @@ small {
   margin-bottom: 11px;
 }
 .form-control.radio-input {
-  margin-top: 25px;
+  margin-top: 43px;
 }
 .radio {
   display: block;

@@ -6,14 +6,14 @@ import * as candidatesActions from './../../candidates.actions';
 import * as candidatesSelectors from '../../candidates.selectors';
 import Spinner from '../spinner/Spinner';
 import { baseUrl } from '../../../env.js';
+
 import './cards.scss';
+
 const Cards = ({ getCandidatesList, candidatesList, isFetching, nextpage }) => {
   const [fetchUrl, setFetchUrl] = useState(baseUrl);
-  const [nextButton, setnextButton] = useState(true);
   useEffect(() => {
     getCandidatesList(fetchUrl);
   }, [fetchUrl]);
-
   const handlerClick = (e) => {
     e.preventDefault();
     setFetchUrl(nextpage['next_url']);
@@ -25,21 +25,22 @@ const Cards = ({ getCandidatesList, candidatesList, isFetching, nextpage }) => {
       {!candidatesList ? (
         ''
       ) : (
-        <div className="get-request__cards">
-          {candidatesList.map((el) => (
-            <Card key={el.id} candidatData={el} />
-          ))}
-        </div>
+        <>
+          <div className="get-request__cards">
+            {candidatesList.map((el) => (
+              <Card key={el.id} candidatData={el} />
+            ))}
+          </div>
+          <button
+            className="get-request__show-more-btn"
+            onClick={(e) => handlerClick(e)}
+            nextpage={`${nextpage['next_url'] !== null}`}>
+            Show more
+          </button>
+        </>
       )}
 
       {isFetching ? <Spinner /> : ''}
-
-      <button
-        className="get-request__show-more-btn"
-        onClick={(e) => handlerClick(e)}
-        nextPage={nextButton}>
-        Show more
-      </button>
     </section>
   );
 };

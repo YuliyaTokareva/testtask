@@ -1,7 +1,12 @@
-import { CANDIDATES_LIST_RECIEVED, SHOW_SPINNER } from './candidates.actions';
+import {
+  CANDIDATES_LIST_RECIEVED,
+  SHOW_SPINNER,
+  POSITION_LIST_RECIEVED
+} from './candidates.actions';
 
 const initialState = {
   candidates: [],
+  positions: {},
   isFetching: false
 };
 
@@ -12,6 +17,11 @@ const candidatesReduser = (state = initialState, action) => {
         ...state,
         candidates: action.payload.candidatesList,
         isFetching: false
+      };
+    case POSITION_LIST_RECIEVED:
+      return {
+        ...state,
+        positions: action.payload.positionsList
       };
     case SHOW_SPINNER: {
       return {

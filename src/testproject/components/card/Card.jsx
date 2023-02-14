@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoCover from '../../svg/PhotoCover';
+import { phoneVal } from '../../../utils/getFormatPhone';
 import './card.scss';
 
 const Card = ({ candidatData }) => {
@@ -19,7 +20,7 @@ const Card = ({ candidatData }) => {
         {candidatData.email}
         {/* {<span className="card__person-tooltiptext"> {candidatData.email}</span>} */}
       </p>
-      <p className="card__person-phone">{candidatData.phone}</p>
+      <p className="card__person-phone">{phoneVal(candidatData.phone)}</p>
     </article>
   );
 };
