@@ -1,20 +1,14 @@
-export const validate = (event, name, value) => {
-  //A function to validate each input values
-
+export const validate = (name, value, setErrors, errors, dataForm) => {
   switch (name) {
     case 'name':
-      if (value.length <= 3) {
-        // we will set the error state
-
+      if (value.length <= 2) {
         setErrors({
           ...errors,
           name: 'Username atleast have 3 letters'
         });
       } else {
-        // set the error state empty or remove the error for username input
-
-        //omit function removes/omits the value from given object and returns a new object
-        let newObj = omit(errors, 'name');
+        let newObj = { ...errors };
+        delete newObj.name;
         setErrors(newObj);
       }
       break;
@@ -30,7 +24,8 @@ export const validate = (event, name, value) => {
           email: 'Enter a valid email address'
         });
       } else {
-        let newObj = omit(errors, 'email');
+        let newObj = { ...errors };
+        delete newObj.email;
         setErrors(newObj);
       }
       break;
@@ -39,10 +34,23 @@ export const validate = (event, name, value) => {
       if (!new RegExp(/^\d{10}$/).test(value)) {
         setErrors({
           ...errors,
-          phone: 'Phone should contains 10 numbers'
+          phone: '+38 (XXX) XXX - XX - XX'
         });
       } else {
-        let newObj = omit(errors, 'phone');
+        let newObj = { ...errors };
+        delete newObj.phone;
+        setErrors(newObj);
+      }
+      break;
+    case 'img':
+      if (dataForm.img.size > 2097152) {
+        setErrors({
+          ...errors,
+          img: `Your image bigger than 1MB`
+        });
+      } else {
+        let newObj = { ...errors };
+        delete newObj.img;
         setErrors(newObj);
       }
       break;

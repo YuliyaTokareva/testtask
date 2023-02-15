@@ -18,62 +18,22 @@ const Form = ({ getPositionsList, positionsList }) => {
     position: '',
     img: ''
   });
-  const validate = (event, name, value) => {
-    //A function to validate each input values
-
-    switch (name) {
-      case 'name':
-        if (value.length <= 3) {
-          // we will set the error state
-
-          setErrors({
-            ...errors,
-            name: 'Username atleast have 3 letters'
-          });
-        }
-
-        break;
-
-      case 'email':
-        if (
-          !new RegExp(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          ).test(value)
-        ) {
-          setErrors({
-            ...errors,
-            email: 'Enter a valid email address'
-          });
-        }
-        break;
-
-      case 'phone':
-        if (!new RegExp(/^\d{10}$/).test(value)) {
-          setErrors({
-            ...errors,
-            phone: '+38 (XXX) XXX - XX - XX'
-          });
-        }
-        break;
-
-      default:
-        break;
-    }
-  };
   useEffect(() => {
     getPositionsList(positionsUrl);
   }, []);
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === 'checkbox' ? checked : value;
+    const { name, value } = e.target;
+
+    // const { name, value, type, checked } = e.target;
+    // const val = type === 'checkbox' ? checked : value;
     setDataForm({
       ...dataForm,
-      [name]: val
+      [name]: value
     });
-    validate(e, name, value);
+    validate(name, value, setErrors, errors, dataForm);
   };
 
-  console.log(errors);
+  console.log(errors, dataForm.img);
   return (
     <section className="post-request">
       <h2 className="post-request__title title">Working with POST request</h2>
@@ -131,6 +91,7 @@ const Form = ({ getPositionsList, positionsList }) => {
             : positionsList.map((el) => (
                 <RadioButton key={el.id} name={el.name} onChange={(e) => handleChange(e)} />
               ))}
+          <small>111{errors.position}</small>
         </div>
         <div className="form-control img-custom-label">
           <label htmlFor="img" className="upload-img">
@@ -147,6 +108,7 @@ const Form = ({ getPositionsList, positionsList }) => {
           <span className="upload-img-description">
             {dataForm.img ? `${dataForm.img}` : 'Upload your photo'}
           </span>
+          <small>111{errors.img}</small>
         </div>
         <button className="submit-button submit-from" type="submit" disabled>
           Sign up
