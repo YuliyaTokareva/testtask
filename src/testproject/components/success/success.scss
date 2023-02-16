@@ -1,0 +1,26 @@
+@import '../../../breakpoints.scss';
+@import 'src/variables.scss';
+
+.success-massage {
+  margin-top: 140px;
+  margin-bottom: 114px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include for-pad {
+    padding: 0 32px;
+  }
+  @include for-laptop {
+    padding: 0 60px;
+  }
+  @include for-large-screen {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+  }
+  &__title {
+    margin-bottom: 50px;
+  }
+}

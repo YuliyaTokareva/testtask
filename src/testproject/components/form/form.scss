@@ -47,6 +47,20 @@ input[type='text'] {
     opacity: 0;
   }
 }
+.form-control:focus-within .form-top-text {
+  display: block;
+}
+.form-control[fill='fill'] .form-top-text {
+  display: block;
+}
+.form-control[type='error'] .form-top-text,
+small {
+  display: block;
+  color: #cb3d40;
+}
+.form-control[type='error'] input {
+  border: 2px solid #cb3d40;
+}
 .form-error-text {
   display: none;
 }
