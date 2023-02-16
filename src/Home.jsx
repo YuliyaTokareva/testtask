@@ -11,7 +11,7 @@ const Home = () => {
       <Header />
       <Headline />
       <Cards />
-      <Success />
+      {/* <Success /> */}
       <Form />
     </>
   );
