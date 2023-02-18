@@ -1,28 +1,44 @@
-export const fetchToken = () => {
-  fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    })
-    .catch(function (error) {
-      // proccess network errors
-      console.log(error);
-    });
-};
-const fetchCandidatesList = (urlName) =>
-  fetch(urlName)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Faild to get');
-      }
-      // eslint-disable-next-line
-      return res.json();
-    })
+import { tokenUrl, sendFormUrl } from '../env';
+let tokenPost = null;
 
-    .catch((err) => {
-      console.log(err);
-    });
+export const fetchToken = async () => {
+  try {
+    const response = await fetch(tokenUrl);
+    const data = await response.json();
+    tokenPost = data.token;
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
+};
+const fetchCandidatesList = async (urlName) => {
+  try {
+    const response = await fetch(urlName);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
+};
 
 export default fetchCandidatesList;
+
+export const fetchPostFofm = async (data) => {
+  try {
+    const response = await fetch(sendFormUrl, {
+      method: 'POST',
+      body: data,
+      headers: {
+        Token: tokenPost
+      }
+    });
+    const res = await response.json();
+
+    return res;
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
+};

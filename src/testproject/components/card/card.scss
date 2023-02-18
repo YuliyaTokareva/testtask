@@ -23,26 +23,6 @@
   &__person-name {
     margin-bottom: 20px;
   }
-  &__person-email {
-    // position: relative;
-    // display: inline-block;
-  }
-  &__person-email &__person-tooltiptext {
-    // visibility: hidden;
-    // max-width: 304px;
-    // background: rgba(0, 0, 0, 0.87);
-    // border-radius: 4px;
-    // padding: 3px 16px;
-    // color: #fff;
-    // text-align: center;
-    // font-size: 16px;
-    // line-height: 26px;
-    // top: 100%;
-    // left: 50%;
-
-    // position: absolute;
-    // z-index: 1;
-  }
   &__person-email:hover &__person-tooltiptext {
     visibility: visible;
     opacity: 1;

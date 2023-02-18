@@ -1,13 +1,16 @@
 import {
   CANDIDATES_LIST_RECIEVED,
   SHOW_SPINNER,
-  POSITION_LIST_RECIEVED
+  POSITION_LIST_RECIEVED,
+  SEND_FORM
 } from './candidates.actions';
 
 const initialState = {
-  candidates: [],
+  candidates: {},
+  users: [],
   positions: {},
-  isFetching: false
+  isFetching: false,
+  isSendForm: {}
 };
 
 const candidatesReduser = (state = initialState, action) => {
@@ -16,6 +19,7 @@ const candidatesReduser = (state = initialState, action) => {
       return {
         ...state,
         candidates: action.payload.candidatesList,
+        users: [...state.users, ...action.payload.candidatesList.users],
         isFetching: false
       };
     case POSITION_LIST_RECIEVED:
@@ -27,6 +31,12 @@ const candidatesReduser = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true
+      };
+    }
+    case SEND_FORM: {
+      return {
+        ...state,
+        isSendForm: action.payload.isSendForm
       };
     }
 

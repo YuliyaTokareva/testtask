@@ -16,10 +16,7 @@ const Card = ({ candidatData }) => {
 
       <p className="card__person-job">{candidatData.position}</p>
 
-      <p className="card__person-email">
-        {candidatData.email}
-        {/* {<span className="card__person-tooltiptext"> {candidatData.email}</span>} */}
-      </p>
+      <p className="card__person-email">{candidatData.email}</p>
       <p className="card__person-phone">{phoneVal(candidatData.phone)}</p>
     </article>
   );

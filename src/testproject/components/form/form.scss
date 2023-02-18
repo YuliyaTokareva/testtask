@@ -26,10 +26,7 @@ form {
     margin: 0 auto;
   }
 }
-.form-control {
-  margin-top: 50px;
-  position: relative;
-}
+
 .form-top-text {
   display: none;
 }
@@ -40,35 +37,37 @@ input {
   width: 100%;
   padding: 14px 16px;
   color: $font-color;
-}
-input[type='email'],
-input[type='text'] {
-  & + label {
-    opacity: 0;
+  &:focus-visible {
+    background: $bacground-color-page;
+    border: $input-border;
+    border-radius: 4px;
+    outline: none;
+  }
+  &[type='email'],
+  &[type='text'] {
+    & + label {
+      opacity: 0;
+    }
   }
 }
-.form-control:focus-within .form-top-text {
-  display: block;
-}
-.form-control[fill='fill'] .form-top-text {
-  display: block;
-}
-.form-control[type='error'] .form-top-text,
-small {
-  display: block;
-  color: #cb3d40;
-}
-.form-control[type='error'] input {
-  border: 2px solid #cb3d40;
-}
-.form-error-text {
-  display: none;
-}
-input:focus-visible {
-  background: $bacground-color-page;
-  border: $input-border;
-  border-radius: 4px;
-  outline: none;
+
+.form-control {
+  margin-top: 50px;
+  position: relative;
+  &:focus-within .form-top-text {
+    display: block;
+  }
+  &[fill='fill'] .form-top-text {
+    display: block;
+  }
+  &[type='error'] .form-top-text,
+  &[type='error'] small {
+    display: block;
+    color: $font-color-error;
+  }
+  &[type='error'] input {
+    border: 2px solid $font-color-error;
+  }
 }
 .form-error-text {
   font-size: 12px;
@@ -193,4 +192,13 @@ small {
 .submit-from {
   display: block;
   margin: 50px auto 100px auto;
+}
+.validationName {
+  font-size: 12px;
+  line-height: 14px;
+  color: $font-color-error;
+  margin-left: 16px;
+  margin-top: 4px;
+  bottom: -21px;
+  left: 0;
 }
