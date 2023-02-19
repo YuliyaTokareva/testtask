@@ -4,7 +4,9 @@ export const CANDIDATES_LIST_RECIEVED = 'CANDIDATES_LIST_RECIEVED';
 export const SHOW_SPINNER = 'SHOW_SPINNER';
 export const POSITION_LIST_RECIEVED = 'POSITION_LIST_RECIEVED';
 export const SEND_FORM = 'SEND_FORM';
-
+export const SEND_SUCCESS = 'SEND_SUCCESS';
+export const CANDIDATES_LIST_UPDATE = 'CANDIDATES_LIST_UPDATE';
+export const SHOW_NEW_FORM = 'SHOW_NEW_FORM';
 export const showSpinner = () => ({
   type: SHOW_SPINNER
 });
@@ -35,6 +37,16 @@ export const postFofm = (isSendForm) => {
   };
   return action;
 };
+export const sendedFofm = () => ({
+  type: SEND_SUCCESS
+});
+export const fetchNewCandidatesList = () => ({
+  type: CANDIDATES_LIST_UPDATE
+});
+export const refreshForm = () => ({
+  type: SHOW_NEW_FORM
+});
+
 export const getCandidatesList = (urlName) => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
@@ -59,6 +71,20 @@ export const getPostFofm = (data) => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
     fetchPostFofm(data).then((isSendForm) => dispatch(postFofm(isSendForm)));
+  };
+  return thunkAction;
+};
+
+export const getNewCandidatesList = (urlName) => {
+  // eslint-disable-next-line
+
+  const thunkAction = function (dispatch) {
+    dispatch(showSpinner());
+    fetchCandidatesList(urlName).then((candidatesList) =>
+      dispatch(fetchCandidatesListRecieved(candidatesList))
+    );
+    dispatch(fetchNewCandidatesList());
+    dispatch(refreshForm());
   };
   return thunkAction;
 };

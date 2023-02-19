@@ -7,6 +7,7 @@ import { fetchToken } from '../../candidatesGateway';
 import { startFormData, compliteFormData } from '../../../utils/useForm';
 import { positionsUrl } from '../../../env';
 import RadioButton from '../radioButton/RadioButton';
+
 import './form.scss';
 
 const Form = ({ getPositionsList, positionsList, postFofm, isSendForm }) => {
@@ -22,16 +23,12 @@ const Form = ({ getPositionsList, positionsList, postFofm, isSendForm }) => {
     fetchToken();
   }, []);
   useEffect(() => {
-    if (isSendForm.success) {
-      setSendStatus(data);
-      setDataForm(startFormData);
-      fetchToken();
-    }
     if (isSendForm.message === 'Validation failed') {
       setErrors(isSendForm.fails);
       setSendStatus(isSendForm);
     } else {
       setSendStatus(isSendForm);
+
       setErrors({});
     }
   }, [isSendForm]);
