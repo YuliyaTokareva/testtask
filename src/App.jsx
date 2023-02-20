@@ -1,15 +1,13 @@
-import React, { lazy, Suspense } from 'react';
-import { Provider } from 'react-redux';
-import store from './store.js';
+import React from 'react';
 
-const Home = lazy(() => import('./Home'));
+import { Provider } from 'react-redux';
+import Home from './Home';
+import store from './store.js';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Home />
-      </Suspense>
+      <Home />
     </Provider>
   );
 };
