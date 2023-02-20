@@ -84,7 +84,9 @@ export const getNewCandidatesList = (urlName) => {
       dispatch(fetchCandidatesListRecieved(candidatesList))
     );
     dispatch(fetchNewCandidatesList());
-    dispatch(refreshForm());
+    setTimeout(() => {
+      dispatch(refreshForm());
+    }, 3000);
   };
   return thunkAction;
 };
