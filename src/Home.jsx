@@ -24,7 +24,9 @@ const Home = ({ isSendForm, getNewCandidatesList }) => {
     <>
       <Header />
       <Headline />
-      <Cvs />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Cvs />
+      </Suspense>
       {isSendForm.success ? (
         <Success />
       ) : (
