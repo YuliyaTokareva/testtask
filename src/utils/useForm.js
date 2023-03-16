@@ -13,5 +13,6 @@ export const compliteFormData = (dataForm, fileField) => {
   formData.append('email', dataForm.email);
   formData.append('phone', dataForm.phone);
   formData.append('photo', fileField.files[0]);
+  console.log(formData);
   return formData;
 };

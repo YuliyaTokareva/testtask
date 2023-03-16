@@ -68,6 +68,9 @@ input {
   &[type='error'] input {
     border: 2px solid $font-color-error;
   }
+  .errorCheck {
+    color: $font-color-error;
+  }
 }
 .form-error-text {
   font-size: 12px;
