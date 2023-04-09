@@ -2,10 +2,10 @@
 let tokenPost = null;
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const SEND_FORM_URL = process.env.REACT_APP_SEND_FORM_URL;
-
+const TOKEN_URL = process.env.REACT_APP_TOKEN_URL;
 export const fetchToken = async () => {
   try {
-    const response = await fetch(tokenUrl);
+    const response = await fetch(TOKEN_URL);
     const data = await response.json();
     tokenPost = data.token;
     return data;

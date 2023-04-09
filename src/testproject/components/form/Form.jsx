@@ -109,7 +109,6 @@ const Form = ({ getPositionsList, positionsList, postFofm, isSendForm }) => {
     postFofm(formData);
   };
   const blurhandler = (e) => {
-    console.log(e.target.name);
     switch (e.target.name) {
       case 'name':
         setNameEmpty(true);
