@@ -1,5 +1,7 @@
-import { tokenUrl, sendFormUrl } from '../env';
+// import { tokenUrl, sendFormUrl } from '../../env';
 let tokenPost = null;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const SEND_FORM_URL = process.env.REACT_APP_SEND_FORM_URL;
 
 export const fetchToken = async () => {
   try {
@@ -27,7 +29,7 @@ export default fetchCandidatesList;
 
 export const fetchPostFofm = async (data) => {
   try {
-    const response = await fetch(sendFormUrl, {
+    const response = await fetch(SEND_FORM_URL, {
       method: 'POST',
       body: data,
       headers: {

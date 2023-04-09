@@ -9,13 +9,14 @@ import { fetchToken } from './testproject/candidatesGateway';
 import Headline from './testproject/components/headline/Headline';
 import Success from './testproject/components/success/Success';
 import Cvs from './testproject/components/cvs/Cvs';
-import { baseUrl } from '../src/env';
+// import { baseUrl } from '../src/env';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Home = ({ isSendForm, getNewCandidatesList }) => {
   useEffect(() => {
     if (isSendForm.success) {
       fetchToken();
-      getNewCandidatesList(baseUrl);
+      getNewCandidatesList(BASE_URL);
     }
   }, [isSendForm]);
   return (

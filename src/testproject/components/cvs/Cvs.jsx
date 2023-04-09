@@ -5,12 +5,13 @@ import * as candidatesActions from './../../candidates.actions';
 import * as candidatesSelectors from '../../candidates.selectors';
 import Cards from '../cards/Cards';
 import Spinner from '../spinner/Spinner';
-import { baseUrl } from '../../../env.js';
+// import { baseUrl } from '../../../../env.js';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 import './cvs.scss';
 
 const Cvs = ({ getCandidatesList, candidatesList, isFetching, nextpage }) => {
-  const [fetchUrl, setFetchUrl] = useState(baseUrl);
+  const [fetchUrl, setFetchUrl] = useState(BASE_URL);
 
   useEffect(() => {
     getCandidatesList(fetchUrl);
