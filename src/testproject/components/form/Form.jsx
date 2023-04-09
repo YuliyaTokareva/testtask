@@ -5,7 +5,6 @@ import * as candidatesActions from './../../candidates.actions';
 import * as candidatesSelectors from '../../candidates.selectors';
 import { fetchToken } from '../../candidatesGateway';
 import { startFormData, compliteFormData } from '../../../utils/useForm';
-// import { positionsUrl } from '../../../env';
 import RadioButton from '../radioButton/RadioButton';
 const POSITIONS_URL = process.env.REACT_APP_POSITIONS_URL;
 

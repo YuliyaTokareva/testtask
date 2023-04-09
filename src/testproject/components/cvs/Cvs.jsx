@@ -5,7 +5,7 @@ import * as candidatesActions from './../../candidates.actions';
 import * as candidatesSelectors from '../../candidates.selectors';
 import Cards from '../cards/Cards';
 import Spinner from '../spinner/Spinner';
-// import { baseUrl } from '../../../../env.js';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 import './cvs.scss';
