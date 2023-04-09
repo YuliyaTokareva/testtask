@@ -101,7 +101,7 @@ const Form = ({ getPositionsList, positionsList, postFofm, isSendForm }) => {
       [name]: value
     });
   };
-  console.log(photoEmpty);
+
   const handlerSubmit = (e) => {
     e.preventDefault();
     const formData = compliteFormData(dataForm, fileField);
